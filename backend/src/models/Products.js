@@ -1,34 +1,37 @@
 /*
-Fields:
-    name
-    description
-    price
-    stock
+    Campos:
+        nombre
+        descripcion
+        precio
+        stock
 */
 
 import { Schema, model } from "mongoose";
 
-const productsSchema = new Schema({
+const productsSchema = new Schema(
+  {
     name: {
-        type: String,
-        require: true
+      type: String,
+      require: true,
     },
-    description: {
-        type: String,
+    desciption: {
+      type: String,
     },
     price: {
-        type: Number,
-        require: true,
-        min: 0
+      type: Number,
+      require: true,
+      min: 0,
     },
     stock: {
-        type: Number,
-        require: true,
-        min: 0
-    }
-}, {
+      type: Number,
+      require: true,
+      min: 0,
+    },
+  },
+  {
     timestamps: true,
-    strict: false
-})
+    strict: false,
+  }
+);
 
 export default model("Products", productsSchema);

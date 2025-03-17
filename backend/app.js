@@ -1,15 +1,25 @@
-// Import todo lo de la libreria express
+// Importo todo lo de la libreria de Express
 import express from "express";
-import productRoutes from "./src/routes/products.js"
+import productsRoutes from "./src/routes/products.js";
+import customersRoutes from "./src/routes/customers.js";
+import employeeRoutes from "./src/routes/employees.js";
+import branchesRoutes from "./src/routes/branches.js";
+import reviewRoutes from "./src/routes/reviews.js"
 
-// Se crea una constante que es igual a la libreria
-// que acabo de importar, y la ejecuto
+
+// Creo una constante que es igual a la libreria que importé
 const app = express();
 
-// Middleware para que acepte datos JSON
+//Que acepte datos en json
 app.use(express.json());
 
-app.use("/api/products", productRoutes);
+// Definir las rutas de las funciones que tendrá la página web
+app.use("/api/products", productsRoutes);
+app.use("/api/customers", customersRoutes);
+app.use("/api/employee", employeeRoutes);
+app.use("/api/branches", branchesRoutes);
+app.use("/api/reviews", reviewRoutes);
 
-// Exportamos esa shi
+
+// Exporto la constante para poder usar express en otros archivos
 export default app;
